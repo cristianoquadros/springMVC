@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Form</h1>
+	<form th:action="@{/user_create}" th:object="${user}" method="post">
+		<table>
+			<tr>
+				<td>ID:</td>
+				<td><input type="text" th:field="*{id}" /></td>
+				<td th:if="${#fields.hasErrors('id')}" th:errors="*{id}">ID Error</td>
+			</tr>
+			<tr>
+				<td>Password:</td>
+				<td><input type="text" th:field="*{password}" /></td>
+				<td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
+			</tr>
+			<tr>
+				<td><button type="submit">Submit</button></td>
+				<td><button type="reset">Reset</button></td>
+			</tr>
+		</table>
+
+	</form>
+</body>
+</html>
